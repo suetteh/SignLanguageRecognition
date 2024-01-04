@@ -33,8 +33,10 @@ Method 1:
 Method 2: 
 - Frames were cropped with respective bounding box to focus on the signer. The purpose of doing so is to keep the distance between the signer and camera consistent for all videos.
 - WLASL dataset: 6 frames were extracted from all videos with 8 frame steps apart.
+  ![WLASL](https://github.com/suetteh/SignLanguageRecognition/blob/main/WLASL.png)
+  
 - LSA64 dataset: 8 frames were extracted from all videos with 12 frame steps apart.
-- Resolution of all videos was 100x100 for model 1 whereas 80x80 for model 2.
+   ![LSA](https://github.com/suetteh/SignLanguageRecognition/blob/main/LSA.png)
 
 ### Possible Improvement
 THe diversity and size of the dataset plays an important role in sign language recognition. Several data preprocessing steps include generation of bounding box to focus on signers and hands as well as frames enhancement should be applied to improve the tracking of MediaPipe Landmark. By utilizing successful word-level sign language recognition model, this work can be further extended to recognize continuous sign language which involve Natural Language Processing techniques.
