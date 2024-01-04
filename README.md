@@ -28,7 +28,7 @@ WLASL (Word-Level American Sign Language) (Li et al., 2020) is an American Sign 
 Method 1: 
 - All videos were applied with MediaPipe Holistic Landmarker before data splitting. Only pose (33 pose landmarks with x, y, z coordinates) and hand landmarkers (21 landmarks per hand with x, y, z coordinates) were applied. The coordinates were normalized to the frame size.
 - To further enhance the characteristics of each sign, additional 21 key points were added for each hand which representing the distance between thumb to each fingertip, wrist to each fingertip, between fingertips, within the joints of fingers (to detect bending), and distance from each fingertip to thumb joint. These values were then normalized to the shoulder distance (landmark 11 and 12).
-- As a result, total of 267 key points were extracted.
+- As a result, total of 267 key points were extracted from each frame.
 
 Method 2: 
 - Frames were cropped with respective bounding box to focus on the signer. The purpose of doing so is to keep the distance between the signer and camera consistent for all videos.
