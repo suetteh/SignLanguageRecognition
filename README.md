@@ -2,7 +2,7 @@
 Sign language is an essential communication tool for people with hearing impairment or deaf-mutes. However, only minority with hearing and speaking abilities understands and can communicate using sign language. In this study, by utilizing MediaPipe Holistic Landmarker and deep learning, two different methods were developed for sign language recognition. 
 Method 1: Uses keypoints of 3D-landmark.
 Method 2: Uses video frame sequence with spatio-temporal information.
-For each method, two deep learning models were developed by using Convolution Neural Network (CNN) and Recurrent Neural Network (RNN) and compared.
+For each method, two deep learning models (Conv-LSTM and Conv-GRU) were developed by using Convolution Neural Network (CNN) and Recurrent Neural Network (RNN) and compared.
 
 ### Challenges
 - Mediapipe Landmarker failed to track the hand landmarks in part of the videos. Therefore, the distance values were normalized with respect to the signer’s shoulder width which is always present throughout the video.
@@ -15,15 +15,6 @@ For each method, two deep learning models were developed by using Convolution Ne
 
 ### Tools used
 [MediaPipe Holistic](https://github.com/google/mediapipe/blob/master/docs/solutions/holistic.md) and [computer vision technique](https://opencv.org/) were utilized in this project. 
-
-![image](https://github.com/suetteh/SignLanguageRecognition/assets/65590665/0f90dfa5-eae6-45d6-bd2e-ea6f627a5fd5)
-
-MediaPipe Pose Landmarker (MediaPipe, 2023)
-
-![image](https://github.com/suetteh/SignLanguageRecognition/assets/65590665/2fba4b32-8fda-4579-9077-8636f2068b1a)
-
-Mediapipe Hand landmarker model bundle detects keypoint localization (MediaPipe, 2023)
-
 
 library: mediapipe, cv2, numpy, matplotlib, pandas, keras, tensorflow, os, shutil, random, imageio.
 
@@ -42,20 +33,13 @@ Method 1:
 Method 2: 
 - Frames were cropped with respective bounding box to focus on the signer. The purpose of doing so is to keep the distance between the signer and camera consistent for all videos.
 - WLASL dataset: 6 frames were extracted from all videos with 8 frame steps apart.
-      ![image](https://github.com/suetteh/SignLanguageRecognition/assets/65590665/4da9139f-f3f4-4abc-9929-ab8ab8da1b70)
-
 - LSA64 dataset: 8 frames were extracted from all videos with 12 frame steps apart.
-   	 	 	 
- 	 	 	 ![image](https://github.com/suetteh/SignLanguageRecognition/assets/65590665/c8677488-a89c-4009-89ec-1cb06976bbf4)
+- Resolution of all videos was 100x100 for model 1 whereas 80x80 for model 2.
 
-
-- Resolution of all videos was 100*100 for model 1 whereas 80*80 for model 2.
-
-
-### Data analytics.
-
-
+### Possible Improvement
+THe diversity and size of the dataset plays an important role in sign language recognition. Several data preprocessing steps include generation of bounding box to focus on signers and hands as well as frames enhancement should be applied to improve the tracking of MediaPipe Landmark. By utilizing successful word-level sign language recognition model, this work can be further extended to recognize continuous sign language which involve Natural Language Processing techniques.
 
 ### Conclusion
-
+Method 2 enable the models to capture the features faster but higher number of epochs in training is required to increase the generalizability of the models.
+Overall, the Conv1D-LSTM model with method 1 tested on LSA64 dataset shows the highest performance on test data accuracy: 98%, loss: 0.0799, f1-score: 0.98, precision: 0.98, recall: 0.98 and with good model fitness.
 
