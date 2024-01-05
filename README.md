@@ -14,6 +14,8 @@ For each method, two deep learning models (Conv-LSTM and Conv-GRU) were develope
 - Most of the videos have a different resolution and video length. When applying method 2, to deal with this issue, 6 frames with 8 frame steps apart were extracted from each video in the WLASL dataset whereas 8 frames with 12 frame stpes apart were extracted from each video in the LSA64 dataset. The resolution of all videos was remain constant.
 
 ### Tools used
+This project was completed using python.
+
 [MediaPipe Holistic](https://github.com/google/mediapipe/blob/master/docs/solutions/holistic.md) and [computer vision technique](https://opencv.org/) were utilized in this project. 
 
 library: mediapipe, cv2, numpy, matplotlib, pandas, keras, tensorflow, os, shutil, random, imageio.
